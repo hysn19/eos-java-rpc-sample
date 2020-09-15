@@ -33,23 +33,22 @@ import client.domain.response.chain.transaction.PushedTransaction;
  */
 public class App 
 {
-
-    private static String walletBaseUrl = "http://127.0.0.1:8899";
-    private static String chainBaseUrl = "http://127.0.0.1:8888";
-    private static String historyBaseUrl = "http://127.0.0.1:8888";
+    public static String walletBaseUrl = "http://127.0.0.1:8899";
+    public static String chainBaseUrl = "http://127.0.0.1:8888";
+    public static String historyBaseUrl = "http://127.0.0.1:8888";
 
     /* Create the rest client */
-    private static EosApiRestClient eosApiRestClient = EosApiClientFactory
+    public static EosApiRestClient eosApiRestClient = EosApiClientFactory
             .newInstance(walletBaseUrl, chainBaseUrl, historyBaseUrl).newRestClient();
 
     /* Get the head block */
-    private static ChainInfo chainInfo = eosApiRestClient.getChainInfo();
-    private static Block block = eosApiRestClient.getBlock(eosApiRestClient.getChainInfo().getHeadBlockId());
+    public static ChainInfo chainInfo = eosApiRestClient.getChainInfo();
+    public static Block block = eosApiRestClient.getBlock(eosApiRestClient.getChainInfo().getHeadBlockId());
 
     public static void main(final String[] args) {
         System.out.println("hello, world");
+        // readtransaction("236e90f1a1e365c8d7132f7995f27e67a2df23d633c83c9b830b0ef42cdb5503");
         // pushtransaction();
-        readtransaction("236e90f1a1e365c8d7132f7995f27e67a2df23d633c83c9b830b0ef42cdb5503");
     }
 
     public static void readtransaction(String hash) {
